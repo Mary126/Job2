@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private GameObject currentSquare;
+    public GameObject currentSquare;
     public PlayerController playerController;
     public bool expTrianges = false;
     public TriangleGameController trianglesGameController;
@@ -23,9 +23,16 @@ public class GameController : MonoBehaviour
             float d = currentSquare.transform.localScale.x * Mathf.Sqrt(2);
             if (d <= sircle.transform.localScale.x)
             {
-                currentSquare.transform.position = sircle.transform.position;
+                currentSquare.transform.position = new Vector3(sircle.transform.position.x, sircle.transform.position.y, -2);
                 playerController.currentMoves += 1;
-                playerController.UpdateText("Moves: " + playerController.currentMoves);
+                if (expTrianges == true)
+                {
+                    playerController.UpdateText("Moves: " + playerController.currentMoves + " Energy: " + trianglesGameController.energy);
+                }
+                else
+                {
+                    playerController.UpdateText("Moves: " + playerController.currentMoves);
+                }
             }
             currentSquare = null;
         }

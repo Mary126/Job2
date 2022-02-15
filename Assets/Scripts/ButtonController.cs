@@ -39,6 +39,8 @@ public class ButtonController : MonoBehaviour
         level3.SetActive(false);
         level.SetActive(true);
         levelMenu.SetActive(false);
+        gameController.currentSquare = null;
+        gameController.trianglesGameController.currentTriangle = null;
     }
     // Start is called before the first frame update
     void Start()
