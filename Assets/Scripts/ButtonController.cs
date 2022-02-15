@@ -11,6 +11,7 @@ public class ButtonController : MonoBehaviour
     public GameObject level3;
     public GameObject levelMenu;
     public Button buttn;
+    public GameController gameController;
 
     void TaskOnClick()
     {
@@ -21,6 +22,10 @@ public class ButtonController : MonoBehaviour
             case "Level2": ShowLevel(level2); break;
             case "Level3": ShowLevel(level3); break;
             default: Debug.Log("No buttn tag"); break;
+        }
+        if (gameController.expTrianges == true)
+        {
+            gameController.trianglesGameController.ShowTriangles(tag);
         }
     }
     void ShowLevelMenu()

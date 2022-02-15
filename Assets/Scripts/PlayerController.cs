@@ -7,8 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public int currentMoves = 0;
     public Text moves;
-    public void UpdateText()
+    public void UpdateText(string text)
     {
-        moves.text = "Moves: " + currentMoves.ToString();
+        moves.text = text;
     }
 }
